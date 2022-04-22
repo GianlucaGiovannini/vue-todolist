@@ -22,8 +22,15 @@ const app = new Vue({
     el: '#app',
 
     data: {
+
+        newTask: "",
+
         tasks: [{
-                text: "Learn Html",
+                text: "Learn VueJS",
+                done: false,
+            },
+            {
+                text: "Learn JS",
                 done: true,
             },
             {
@@ -31,20 +38,35 @@ const app = new Vue({
                 done: true,
             },
             {
-                text: "Learn JS",
+                text: "Learn HTML",
                 done: true,
             },
-            {
-                text: "Learn VueJS",
-                done: false,
-            },
         ],
+
+
+
     },
 
     methods: {
         removeTask(i) {
             this.tasks.splice(i, 1)
         },
+
+        addTask() {
+            this.task = {
+                text: this.newTask,
+                done: false
+            }
+
+            this.tasks.unshift(this.task)
+
+            this.newTask = ""
+
+            if (this.task.text === "") {
+                this.removeTask()
+            }
+        },
+
     },
 
     mounted() {
