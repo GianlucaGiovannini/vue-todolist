@@ -91,10 +91,15 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.8rem 1rem 0.5rem 2rem;
+    padding: 0.8rem 1rem 0.3rem 0;
     margin-bottom: 1.2rem;
     border-top-left-radius: 2.8rem;
     border-top-right-radius: 1rem;
+}
+
+.todo_item>.desc {
+    width: 100%;
+    padding-left: 1.5rem;
 }
 
 .todo_item i {

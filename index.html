@@ -34,7 +34,7 @@
                 <div class="todo_container shadow">
 
                     <div class="todo_item" v-for="(task, i) in tasks" :class="task.done === true ? 'todo_done' : '' ">
-                        <div class=" desc ">
+                        <div class="desc" @click="doneChange(i)">
                             {{task.text}}
                         </div>
                         <!-- /.desc -->

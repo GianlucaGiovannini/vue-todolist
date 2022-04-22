@@ -67,6 +67,13 @@ const app = new Vue({
             }
         },
 
+        doneChange(i) {
+            if (this.tasks[i].done === false) {
+                this.tasks[i].done = true
+            } else if (this.tasks[i].done === true) {
+                this.tasks[i].done = false
+            }
+        },
     },
 
     mounted() {
