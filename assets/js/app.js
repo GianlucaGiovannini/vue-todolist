@@ -62,7 +62,7 @@ const app = new Vue({
 
             this.newTask = ""
 
-            if (this.task.text === " " || this.task.text === "  " || this.task.text === "   " || this.task.text === "    " || this.task.text === "     ") {
+            if (this.task.text <= 4) {
                 this.removeTask()
             }
         },
