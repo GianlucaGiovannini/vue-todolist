@@ -31,11 +31,11 @@
                 </div>
                 <!-- /.todo_action -->
 
-                <div class="todo_container shadow">
+                <div class="todo_container_list shadow">
                     <div class="todo_list" v-if="tasks.length > 0">
 
                         <div class="todo_item" v-for="(task, i) in tasks" :class="task.done === true ? 'todo_done' : '' ">
-                            <div class="desc" @click="doneChange(i)">
+                            <div class="desc" @dblclick="doneChange(i)">
                                 {{task.text}}
                             </div>
                             <!-- /.desc -->
@@ -52,6 +52,7 @@
                         😊 non c'è niente da fare oggi!
                     </div>
                     <!-- /.empty_list -->
+
 
                 </div>
                 <!-- /.todo_container -->

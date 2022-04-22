@@ -29,6 +29,12 @@ img {
     text-decoration-thickness: from-font;
 }
 
+.todo_done i {
+    color: #ff0000bf;
+    background-color: white;
+    border-radius: 50%;
+}
+
 
 /* header */
 
@@ -65,13 +71,14 @@ img {
     border-radius: 0.75rem;
 }
 
-#site_main input {
+#site_main .todo_action input {
     font-size: 1rem;
     font-weight: 600;
     width: 20rem;
+    outline-color: #00e165;
 }
 
-#site_main button {
+#site_main .todo_action button {
     font-size: 1rem;
     font-weight: 600;
     background-color: whitesmoke;
@@ -80,7 +87,7 @@ img {
 
 /* todo container */
 
-.todo_container {
+.todo_container_list {
     background-color: aliceblue;
     width: 35rem;
     border-radius: 2rem;
