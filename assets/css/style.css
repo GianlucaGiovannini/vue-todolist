@@ -84,6 +84,11 @@ img {
     background-color: whitesmoke;
 }
 
+.overflow {
+    max-width: 550px;
+    overflow: auto;
+}
+
 
 /* todo container */
 
@@ -94,6 +99,7 @@ img {
     display: flex;
     flex-direction: column;
     padding: 2.5rem 4rem;
+    max-height: 560px;
 }
 
 .todo_item {
@@ -122,4 +128,33 @@ img {
 
 .empty_list {
     font-size: 1.5rem;
+}
+
+
+/* ===== Scrollbar CSS ===== */
+
+
+/* Firefox */
+
+* {
+    scrollbar-width: auto;
+    scrollbar-color: #1de26c transparent;
+}
+
+
+/* Chrome, Edge, and Safari */
+
+*::-webkit-scrollbar {
+    height: 10px;
+    width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #1de26c;
+    border-radius: 10px;
+    border: 3px solid #ffffff;
 }
