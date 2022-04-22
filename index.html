@@ -32,20 +32,31 @@
                 <!-- /.todo_action -->
 
                 <div class="todo_container shadow">
+                    <div class="todo_list" v-if="tasks.length > 0">
 
-                    <div class="todo_item" v-for="(task, i) in tasks" :class="task.done === true ? 'todo_done' : '' ">
-                        <div class="desc" @click="doneChange(i)">
-                            {{task.text}}
+                        <div class="todo_item" v-for="(task, i) in tasks" :class="task.done === true ? 'todo_done' : '' ">
+                            <div class="desc" @click="doneChange(i)">
+                                {{task.text}}
+                            </div>
+                            <!-- /.desc -->
+                            <div class="icons">
+                                <i class="fa-solid fa-circle-xmark" @click="removeTask(i)"></i>
+                            </div>
+                            <!-- /.icons -->
                         </div>
-                        <!-- /.desc -->
-                        <div class="icons">
-                            <i class="fa-solid fa-circle-xmark" @click="removeTask(i)"></i>
-                        </div>
-                        <!-- /.icons -->
+                        <!-- /.todo_item -->
                     </div>
-                    <!-- /.todo_item -->
+                    <!-- /.todo_list -->
+
+                    <div class="empty_list" v-else>
+                        😊 non c'è niente da fare oggi!
+                    </div>
+                    <!-- /.empty_list -->
+
                 </div>
                 <!-- /.todo_container -->
+
+
 
 
             </div>

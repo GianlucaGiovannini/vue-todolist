@@ -23,6 +23,10 @@ img {
 
 .todo_done {
     background-color: rgb(106 255 47 / 50%);
+    text-decoration: line-through;
+    text-decoration-color: #c90c12;
+    text-decoration-style: wavy;
+    text-decoration-thickness: from-font;
 }
 
 
@@ -100,9 +104,15 @@ img {
 .todo_item>.desc {
     width: 100%;
     padding-left: 1.5rem;
+    padding-right: 0.7rem;
+    word-wrap: break-word;
 }
 
 .todo_item i {
     font-size: 1.6rem;
     cursor: pointer;
+}
+
+.empty_list {
+    font-size: 1.5rem;
 }
