@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VueJs To do list</title>
+    <!-- fontawesome -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css' integrity='sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==' crossorigin='anonymous' referrerpolicy='no-referrer'
+    />
+    <!-- css -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <div id="app">
+
+        <header id="site_header">
+            <img src="https://hiringplatform.boolean.careers/images/logo.png" alt="">
+        </header>
+        <!-- /#site_header -->
+
+        <main id="site_main">
+            <div class="container">
+
+                <div class="todo_action">
+                    <input type="text" placeholder="Nuovo To-do" class="shadow" v-model="newTask" @keyup.enter="addTask">
+                    <button class="shadow" @click="addTask">Aggiungi</button>
+                </div>
+                <!-- /.todo_action -->
+
+                <div class="row">
+
+                    <div class="todo_container_list shadow">
+                        <h2>ToDo List</h2>
+                        <div class="overflow">
+                            <div class="todo_list" v-if="tasks.length > 0">
+                                <div class="todo_item" v-for="(task, i) in tasks" :class="task.done === true ? 'todo_done' : '' ">
+                                    <div class="desc" @dblclick="doneChange(i)">
+                                        {{task.text}}
+                                    </div>
+                                    <!-- /.desc -->
+                                    <div class="icons">
+                                        <i class="fa-solid fa-circle-check" @click="completeTask(i)"></i>
+                                        <i class="fa-solid fa-circle-xmark" @click="removeTask(i)"></i>
+                                    </div>
+                                    <!-- /.icons -->
+                                </div>
+                                <!-- /.todo_item -->
+                            </div>
+                            <!-- /.todo_list -->
+
+                            <div class="empty_list" v-else>
+                                😊 non c'è niente da fare oggi!
+                            </div>
+                            <!-- /.empty_list -->
+                        </div>
+                        <!-- /.overflow -->
+                    </div>
+                    <!-- /.todo_container_list -->
+
+                    <div class="todo_container_completed shadow" v-if="tasksCompleted.length > 0">
+                        <h2>Completed</h2>
+                        <div class="overflow">
+                            <div class="todo_list">
+                                <div class="todo_item" v-for="(taskC, i) in tasksCompleted" :class="taskC.done === true ? 'todo_done' : '' ">
+                                    <div class="desc">
+                                        {{taskC.text}}
+                                    </div>
+                                    <!-- /.desc -->
+                                    <div class="icons">
+                                        <i class="fa-solid fa-reply" @click="replyTask(i)"></i>
+                                        <i class="fa-solid fa-trash-can-arrow-up" @click="trashTask(i)"></i>
+                                    </div>
+                                    <!-- /.icons -->
+                                </div>
+                                <!-- /.todo_item -->
+                            </div>
+                            <!-- /.todo_list -->
+                        </div>
+                        <!-- /.overflow -->
+                    </div>
+                    <!-- /.todo_container_completed -->
+
+                    <div class="todo_container_trashed shadow" v-if="tasksTrashed.length > 0">
+                        <h2>
+                            Trashed (
+                            <a href="#" @click="emptyAllTasks">
+                                Empty Bin
+                            </a> )
+                        </h2>
+                        <div class="overflow">
+                            <div class="todo_list">
+                                <div class="todo_item" v-for="(taskT, i) in tasksTrashed" :class="taskT.done === true ? 'todo_done' : '' ">
+                                    <div class="desc">
+                                        {{taskT.text}}
+                                    </div>
+                                    <!-- /.desc -->
+                                    <div class="icons">
+                                        <i class="fa-solid fa-recycle" @click="recicleTask(i)"></i>
+                                        <i class="fa-solid fa-trash" @click="emptyTask(i)"></i>
+                                    </div>
+                                    <!-- /.icons -->
+                                </div>
+                                <!-- /.todo_item -->
+                            </div>
+                            <!-- /.todo_list -->
+                        </div>
+                        <!-- /.overflow -->
+                    </div>
+                    <!-- /.todo_container_completed -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container -->
+        </main>
+        <!-- /#site_main -->
+
+    </div>
+    <!-- /#app -->
+
+    <!-- Vue2 js -->
+    <script src='https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js'></script>
+    <!-- javascript -->
+    <script src=" ./app.js "></script>
+
+</body>
+
+</html>

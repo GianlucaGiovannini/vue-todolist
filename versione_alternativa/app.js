@@ -42,10 +42,15 @@ const app = new Vue({
                 done: true,
             },
         ],
+
+        tasksCompleted: [],
+
+        tasksTrashed: [],
     },
 
     methods: {
         removeTask(i) {
+            this.tasksTrashed.push(this.tasks[i])
             this.tasks.splice(i, 1)
         },
 
@@ -62,6 +67,35 @@ const app = new Vue({
             if (this.task.text < 1) {
                 this.removeTask()
             }
+        },
+
+        completeTask(i) {
+            this.tasksCompleted.push(this.tasks[i])
+            this.tasks.splice(i, 1)
+        },
+
+        replyTask(i) {
+            this.tasks.unshift(this.tasksCompleted[i])
+            this.tasksCompleted.splice(i, 1)
+        },
+
+        trashTask(i) {
+            this.tasksTrashed.unshift(this.tasksCompleted[i])
+            this.tasksCompleted.splice(i, 1)
+        },
+
+        recicleTask(i) {
+            this.tasks.unshift(this.tasksTrashed[i])
+            this.tasksTrashed.splice(i, 1)
+        },
+
+        emptyTask(i) {
+
+            this.tasksTrashed.splice(i, 1)
+        },
+
+        emptyAllTasks() {
+            this.tasksTrashed.splice(0, this.tasksTrashed.length)
         },
 
         doneChange(i) {
