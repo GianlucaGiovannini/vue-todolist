@@ -38,7 +38,9 @@
                         <div class="overflow">
                             <div class="todo_list" v-if="tasks.length > 0">
                                 <div class="todo_item" v-for="(task, i) in tasks" :class="task.done === true ? 'todo_done' : '' ">
-                                    <div class="desc" @dblclick="doneChange(i)">
+
+                                    <input type="text" :placeholder="task.text" v-model="task.text" v-if="task.isClicked" @focusout="task.isClicked = false">
+                                    <div v-else class="desc" @click="tagInput(i)">
                                         {{task.text}}
                                     </div>
                                     <!-- /.desc -->

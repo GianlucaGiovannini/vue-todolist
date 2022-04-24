@@ -28,18 +28,22 @@ const app = new Vue({
         tasks: [{
                 text: "Learn VueJS",
                 done: false,
+                isClicked: false,
             },
             {
                 text: "Learn JS",
-                done: true,
+                done: false,
+                isClicked: false,
             },
             {
                 text: "Learn CSS",
-                done: true,
+                done: false,
+                isClicked: false,
             },
             {
                 text: "Learn HTML",
-                done: true,
+                done: false,
+                isClicked: false,
             },
         ],
 
@@ -57,7 +61,8 @@ const app = new Vue({
         addTask() {
             this.task = {
                 text: this.newTask,
-                done: false
+                done: false,
+                isClicked: false,
             }
 
             this.tasks.unshift(this.task)
@@ -70,11 +75,13 @@ const app = new Vue({
         },
 
         completeTask(i) {
+            this.tasks[i].done = true
             this.tasksCompleted.push(this.tasks[i])
             this.tasks.splice(i, 1)
         },
 
         replyTask(i) {
+            this.tasksCompleted[i].done = false
             this.tasks.unshift(this.tasksCompleted[i])
             this.tasksCompleted.splice(i, 1)
         },
@@ -105,10 +112,16 @@ const app = new Vue({
                 this.tasks[i].done = false
             }
         },
+
+        tagInput(i) {
+            this.tasks[i].isClicked = true;
+        }
+
     },
 
     mounted() {
 
     },
+
 
 });

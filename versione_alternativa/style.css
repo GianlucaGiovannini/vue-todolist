@@ -62,7 +62,7 @@ img {
     margin-bottom: 4rem;
 }
 
-#site_main input,
+#site_main .todo_action input,
 #site_main button {
     padding: 1rem 1.4rem;
     border: none;
@@ -145,6 +145,18 @@ img {
     margin-bottom: 1.2rem;
     border-top-left-radius: 2.8rem;
     border-top-right-radius: 1rem;
+}
+
+.todo_item>input {
+    font-size: 1.125rem;
+    font-weight: 600;
+    width: 18rem;
+    padding: 1rem 0.5rem;
+    margin-left: 0.5rem;
+    background-color: transparent;
+    border: none;
+    border-top-left-radius: 2rem;
+    outline-color: #00e165;
 }
 
 .todo_item>.desc {
