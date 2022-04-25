@@ -71,6 +71,7 @@ const app = new Vue({
 
             if (this.task.text < 1) {
                 this.removeTask()
+                this.tasksTrashed.splice(0, 1)
             }
         },
 
