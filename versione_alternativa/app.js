@@ -93,6 +93,7 @@ const app = new Vue({
         },
 
         recicleTask(i) {
+            this.tasksTrashed[i].done = false
             this.tasks.unshift(this.tasksTrashed[i])
             this.tasksTrashed.splice(i, 1)
         },
