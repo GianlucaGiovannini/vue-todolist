@@ -104,7 +104,12 @@ const app = new Vue({
         },
 
         emptyAllTasks() {
-            this.tasksTrashed.splice(0, this.tasksTrashed.length)
+            const deletedConfirmation = confirm("Sei sicuro di cancellare tutto ? [yes/no]")
+
+            if (deletedConfirmation) {
+                this.tasksTrashed = []
+            }
+
         },
 
         doneChange(i) {
